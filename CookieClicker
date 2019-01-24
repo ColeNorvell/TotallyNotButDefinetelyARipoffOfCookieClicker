@@ -1,0 +1,78 @@
+<!docTYPE html>
+<!--ALL CREDIT GOES TO COLE N-->
+<!--Totally not a ripoff of Cookie Clicker-->
+<html>
+<head>
+    <title>Totally Not a Ripoff of Cookie Cliker</title>
+</head>
+<body>
+    <p id="cookieLabel">Cookies: 0</p>
+    <p id="grandmaLabel">Grandmas: 0</p>
+    <p id="retirementHomeLabel">Retirement Homes: 0</p>
+    <p id="constructionWorkerLabel">Construction Workers: 0</p>
+    <p id="contractorLabel">Contractors: 0</p>
+    <button onclick="makeCookie()">Make Cookie</button>
+    <button onclick="makeGrandma()">Make Grandma</button>
+    <button onclick="makeRetirementHome()">Make Retirement Home</button>
+    <button onclick="makeConstructionWorker()">Make Construction Worker</button>
+    <button onclick="makeContractor()">Make Contractor</button>
+<script>
+    var cookies = 0;
+    var grandmas = 0;
+    var retirementHomes = 0;
+    var constructionWorkers = 0;
+    var contractors = 0;
+    function makeCookie() {
+        cookies = cookies + 1;
+        document.getElementById("cookieLabel").innerHTML = "Cookies: " + cookies;
+    }
+    function makeGrandma() {
+        if (cookies >= 35) {
+            cookies -= 35;
+            grandmas += 1;
+            document.getElementById("grandmaLabel").innerHTML = "Grandmas: " + grandmas;
+        }
+    }
+    setInterval(function() {
+        cookies = cookies + (grandmas * 3);
+        document.getElementById("cookieLabel").innerHTML = "Cookies: " + cookies;
+    }, 3000);
+
+    function makeRetirementHome() {
+        if (grandmas >= 25) {
+            grandmas -= 25;
+            retirementHomes += 1;
+            document.getElementById("retirementHomeLabel").innerHTML = "Retirement Homes: " + retirementHomes;
+        }
+    }
+    setInterval(function() {
+        grandmas = grandmas + (retirementHomes * 2);
+        document.getElementById("grandmaLabel").innerHTML = "Grandmas: " + grandmas;
+    }, 4000);
+
+    function makeConstructionWorker() {
+        if (retirementHomes >= 10) {
+            retirementHomes -= 10;
+            constructionWorkers += 1;
+            document.getElementById("constructionWorkerLabel").innerHTML = "Construction Workers: " + constructionWorkers;
+        }
+    }
+    setInterval(function() {
+        retirementHomes = retirementHomes + constructionWorkers;
+        document.getElementById("retirementHomeLabel").innerHTML = "Retirement Homes: " + retirementHomes;
+    }, 5000);
+
+    function makeContractor() {
+        if (constructionWorkers >= 5) {
+            constructionWorkers -= 5;
+            contractors += 1;
+            document.getElementById("contractorLabel").innerHTML = "Contractors: " + contractors;
+        }
+    }
+    setInterval(function() {
+        constructionWorkers = constructionWorkers + contractors;
+        document.getElementById("constructionWorkerLabel").innerHTML = "Construction Workers: " + constructionWorkers;
+    }, 7000);
+</script>
+</body>
+</html>
